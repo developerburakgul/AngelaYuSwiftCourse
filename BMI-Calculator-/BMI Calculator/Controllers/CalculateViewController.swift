@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CalculateViewController: UIViewController {
+    
+    
+    var calculatorBrain = CalculatorBrain()
+    
     @IBOutlet weak var heightLabel: UILabel!
     
     @IBOutlet weak var weightLabel: UILabel!
@@ -24,34 +28,34 @@ class ViewController: UIViewController {
 
     @IBAction func heightSliderChanged(_ sender: UISlider) {
         var height = sender.value
-        var heightTimes100IntValue = Int(height*100)
-        height = Float(heightTimes100IntValue)/Float(100)
-        
-        
         heightLabel.text = String(format: "%.2f", height) + String(" m")
     }
     
     @IBAction func weightSliderChanged(_ sender: UISlider) {
-        let weight = Int(weightSlider.value)
-        var weightFloatValue = Float(weight)
-        
-        weightLabel.text = String(format: "%.0f", weightFloatValue) + String(" Kg")
+        let weight = weightSlider.value
+        weightLabel.text = String(format: "%.0f", weight) + String(" Kg")
     }
+    
     @IBAction func calculatePressed(_ sender: UIButton) {
         var height = heightSlider.value
-        var heightTimes100IntValue = Int(height*100)
-        height = Float(heightTimes100IntValue)/Float(100) // height 2 ondalıklı olacak şekilde ayarladım
+        let weight = weightSlider.value
+        
+        calculatorBrain.calculateBMI(height : height ,weight : weight)
+        
+        self.performSegue(withIdentifier: "goToResult", sender: self)
         
         
         
-        let weight = Int(weightSlider.value)
-        var bmi = Float(weight) / Float(pow(height, 2))
-        var bmiTimes100IntValue = Int(bmi*100)
-        bmi = Float(bmiTimes100IntValue)/Float(100)
-        print(bmi)
         
-        
-        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult"{
+            let destinationVC = segue.destination as! ResultViewController
+            destinationVC.bmiValue = calculatorBrain.getBMIValue()
+            
+        }
     }
     
 }
