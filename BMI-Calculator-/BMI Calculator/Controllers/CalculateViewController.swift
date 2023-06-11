@@ -27,7 +27,7 @@ class CalculateViewController: UIViewController {
     }
 
     @IBAction func heightSliderChanged(_ sender: UISlider) {
-        var height = sender.value
+        let height = sender.value
         heightLabel.text = String(format: "%.2f", height) + String(" m")
     }
     
@@ -37,7 +37,7 @@ class CalculateViewController: UIViewController {
     }
     
     @IBAction func calculatePressed(_ sender: UIButton) {
-        var height = heightSlider.value
+        let height = heightSlider.value
         let weight = weightSlider.value
         
         calculatorBrain.calculateBMI(height : height ,weight : weight)
