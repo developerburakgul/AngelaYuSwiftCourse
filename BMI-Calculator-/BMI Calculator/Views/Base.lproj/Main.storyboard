@@ -207,6 +207,7 @@
                             <constraint firstItem="r83-N3-Ash" firstAttribute="leading" secondItem="A2l-zF-O8p" secondAttribute="leading" id="vIH-oq-YVf"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="d9b-gk-ack"/>
                     <connections>
                         <outlet property="adviceLabel" destination="9IV-CT-mxw" id="ccJ-et-6uh"/>
                         <outlet property="bmiLabel" destination="VU9-2W-Sd5" id="Qij-hL-oKL"/>
@@ -214,7 +215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fn-rV-g4l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="916" y="138"/>
+            <point key="canvasLocation" x="841" y="129"/>
         </scene>
     </scenes>
     <resources>
