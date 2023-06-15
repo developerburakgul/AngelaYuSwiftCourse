@@ -9,15 +9,15 @@
 import UIKit
 
 class ResultsViewController: UIViewController {
-    var totalAmount : Float!
-    var personNumber : Int!
-    var tip : Float!
+    var personalAmount : Float!
+    var numberOfPeople : Int!
+    var tipRate : Float!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var settingsLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        totalLabel.text = "\(totalAmount!)"
-        settingsLabel.text = "Split between \(personNumber!) people , with \(Int(tip*100)) % tip"
+        totalLabel.text = String(format: "%.4f", personalAmount!)
+        settingsLabel.text = "Split between \(numberOfPeople!) people , with \(Int(tipRate*100)) % tip"
         
 
         // Do any additional setup after loading the view.
@@ -28,14 +28,6 @@ class ResultsViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }
