@@ -17,6 +17,7 @@ struct CalculatorBrain {
         let Weight = round(weight*100)/100
         let bmiValue = Weight/pow(Height, 2)
         
+        
         switch bmiValue {
         case ..<18.5:
             bmi = BMI(value: bmiValue, advice: "Eat more pies!", color:UIColor {_ in return #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)} )

@@ -12,6 +12,9 @@ struct CalculatorBrain {
     
     
     
+    
+    
+    
     var numberOfPeople : Int = 2
     var tipRate : Float = 0.10
     var totalAmount : Float?
