@@ -3,6 +3,13 @@ protocol CanFly {
     func fly()
 }
 
+extension CanFly {
+    // if any struct or class dont have CanFly protocol , as default this fly function runs
+    func fly()  {
+        print("The object takes off into the air")
+    }
+}
+
 
 
 
@@ -47,17 +54,21 @@ struct FlyingMuseum  {
 }
 
 struct Airplane : CanFly {
-    func fly() {
-        print("The air plane uses its engine to lift off into the air")
-    }
-    
+//    func fly() {
+//        print("The air plane uses its engine to lift off into the air")
+//    }
+//
     
 }
 
+//var eagle = Eagle()
+//var penguin = Penguin()
+//var plane = Airplane()
+//
+//
+//let museum = FlyingMuseum()
+//museum.flyingDemo(flyingObject: plane)
+var myPlane = Airplane()
+myPlane.fly()
 var eagle = Eagle()
-var penguin = Penguin()
-var plane = Airplane()
-
-
-let museum = FlyingMuseum()
-museum.flyingDemo(flyingObject: plane)
+eagle.fly()
