@@ -11,21 +11,28 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReusableCell" rowHeight="96" id="KGk-i7-Jjw" customClass="MessageCell" customModule="Flash_Chat_iOS13" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="423" height="96"/>
+        <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReusableCell" rowHeight="93" id="KGk-i7-Jjw" customClass="MessageCell" customModule="Flash_Chat_iOS13" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="423" height="93"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="423" height="96"/>
+                <rect key="frame" x="0.0" y="0.0" width="423" height="93"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8mw-Lh-4CP">
-                        <rect key="frame" x="10" y="10" width="403" height="76"/>
+                        <rect key="frame" x="10" y="10" width="403" height="73"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YouAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="U2O-Qn-hkz">
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="fh2-NN-MRM"/>
+                                    <constraint firstAttribute="height" constant="40" id="hn2-iR-ySy"/>
+                                </constraints>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nfA-QB-5Df">
-                                <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                                <rect key="frame" x="60" y="0.0" width="283" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xd-RV-nOi">
-                                        <rect key="frame" x="10" y="10" width="323" height="30"/>
+                                        <rect key="frame" x="10" y="10" width="263" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" name="BrandLightPurple"/>
                                         <nil key="highlightedColor"/>
@@ -39,11 +46,11 @@
                                     <constraint firstItem="6xd-RV-nOi" firstAttribute="top" secondItem="nfA-QB-5Df" secondAttribute="top" constant="10" id="r2I-9B-Whz"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MeAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="U2O-Qn-hkz">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MeAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="9wu-rI-Sfj">
                                 <rect key="frame" x="363" y="0.0" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="fh2-NN-MRM"/>
-                                    <constraint firstAttribute="height" constant="40" id="hn2-iR-ySy"/>
+                                    <constraint firstAttribute="height" constant="40" id="RtX-Xx-obl"/>
+                                    <constraint firstAttribute="width" constant="40" id="fQX-8u-o3M"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -59,14 +66,16 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="label" destination="6xd-RV-nOi" id="fQ5-a8-RyZ"/>
+                <outlet property="leftImageView" destination="U2O-Qn-hkz" id="ma3-rv-Sb5"/>
                 <outlet property="messageBubble" destination="nfA-QB-5Df" id="jO2-UW-q51"/>
-                <outlet property="rightImageView" destination="U2O-Qn-hkz" id="Qbe-qC-fXB"/>
+                <outlet property="rightImageView" destination="9wu-rI-Sfj" id="4jj-WV-XDh"/>
             </connections>
-            <point key="canvasLocation" x="544.27480916030527" y="48.591549295774648"/>
+            <point key="canvasLocation" x="542.74809160305347" y="47.535211267605639"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="MeAvatar" width="36" height="36"/>
+        <image name="YouAvatar" width="36" height="36"/>
         <namedColor name="BrandLightPurple">
             <color red="0.98000001907348633" green="0.9649999737739563" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -10,6 +10,7 @@ import UIKit
 import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure() // we wrote this line in order to use FireBase Auth
         let db = Firestore.firestore()
+        
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableAutoToolbar = false
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        UINavigationBar.appearance().backgroundColor = .red
+        
 
         return true
     }

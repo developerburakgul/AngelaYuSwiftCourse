@@ -28,6 +28,7 @@ class RegisterViewController: UIViewController {
             }
         }
     }
+
     
     func showAlert(with message : String){
         let alert = UIAlertController(title: "Warning", message: message, preferredStyle: .alert)
