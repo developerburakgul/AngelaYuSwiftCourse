@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Item {
-    var name : String
-    var isDone : Bool
+class Item : Codable {
+    var title : String = ""
+    var done : Bool = false
 }
