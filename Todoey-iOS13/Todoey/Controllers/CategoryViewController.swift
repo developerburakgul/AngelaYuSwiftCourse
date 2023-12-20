@@ -77,8 +77,6 @@ class CategoryViewController: UITableViewController {
             
             let newCategory = Category()
             newCategory.name = textField.text!
-            
-            
             self.save(newCategory)
             
         }
