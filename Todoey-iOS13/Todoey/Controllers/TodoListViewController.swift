@@ -36,7 +36,7 @@ class TodoListViewController: SwipeTableViewController {
     //MARK: - TableView Datasource Methods
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         if let item = todoItems?[indexPath.row] {
             cell.textLabel?.text = item.title
             // ternary opearator
@@ -120,6 +120,19 @@ class TodoListViewController: SwipeTableViewController {
     func loadItems()  {
         todoItems = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
         tableView.reloadData()
+    }
+    
+    override func updateModel(at indexPath: IndexPath) {
+        if let deleteItem = todoItems?[indexPath.row] {
+            do {
+                try realm.write {
+                    self.realm.delete(deleteItem)
+                }
+            } catch  {
+                print("Error deleting item , \(error)")
+            }
+            self.tableView.reloadData()
+        }
     }
 }
 
