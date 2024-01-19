@@ -41,12 +41,14 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Items" id="di0-QQ-NbJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="avM-yb-pcx">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="addButtonPressed:" destination="uIh-nR-Qec" id="Lxc-Ah-LJf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="yOn-s6-lDe" id="WEf-5X-LEZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SSK-2r-em9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,8 +59,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WBh-uW-MZ0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0PK-Xi-Vc2">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="0PK-Xi-Vc2">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <navigationBarAppearance key="standardAppearance">

@@ -21,6 +21,12 @@ class CategoryViewController: SwipeTableViewController {
         tableView.separatorEffect = .none
 
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        guard let navBar = navigationController?.navigationBar else {fatalError("Navigation Controller does not exist ")}
+        navBar.scrollEdgeAppearance?.backgroundColor = .systemRed
+    }
     
     // MARK: - TableView Datasource Methods
     
@@ -34,9 +40,12 @@ class CategoryViewController: SwipeTableViewController {
         
         cell.textLabel?.text = categoryArray?[indexPath.row].name ?? "No Categories Added Yet"
         
-        cell.backgroundColor = UIColor(hexString: categoryArray?[indexPath.row].hexCodeOfColor ?? "EB4E3E")
-        
-        
+        if let category = categoryArray?[indexPath.row] {
+            guard let categoryColor = UIColor(hexString:category.hexCodeOfColor) else {fatalError()}
+            cell.backgroundColor = categoryColor
+            cell.textLabel?.textColor = ContrastColorOf(categoryColor, returnFlat: true)
+        }
+        cell.selectionStyle = .none
         return cell
         
         
@@ -45,6 +54,8 @@ class CategoryViewController: SwipeTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "goToItems", sender: self)
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
