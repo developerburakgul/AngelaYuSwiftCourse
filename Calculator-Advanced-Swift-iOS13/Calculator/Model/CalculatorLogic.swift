@@ -11,23 +11,24 @@ import Foundation
 struct CalculatorLogic {
     
     private var number : Double? 
-    private var intermediateCalculation : (number1:Double,calculationMethod:String)?
+    private var intermediateCalculation : (number1:Double,calculationMethod:Operation)?
+    private var operation:Operation?
     
     //MARK: - Functions
     mutating func setNumber(_ number :Double)  {
         self.number = number
     }
 
-    mutating func Calculate(symbol : String)->Double?{
+    mutating func Calculate(symbol : Operation)->Double?{
         if let number = number {
             switch symbol {
-            case "+/-":
+            case .changeSign:
                 return number * -1
-            case "AC":
+            case .AC:
                 return number * 0
-            case "%":
+            case .percentage:
                 return number * 0.01
-            case "=":
+            case .equal:
                 return performTwoNumCalculation(number2:number)
             default:
                 intermediateCalculation = (number1:number,calculationMethod:symbol)
@@ -39,13 +40,13 @@ struct CalculatorLogic {
     private func performTwoNumCalculation( number2 : Double ) -> Double?{
         if let number1 = intermediateCalculation?.number1 ,let operation = intermediateCalculation?.calculationMethod {
             switch operation {
-            case "+":
+            case .plus:
                 return number1 + number2
-            case "-":
+            case .minus:
                 return number1 - number2
-            case "÷":
+            case .divide:
                 return number1/number2
-            case "×":
+            case .multiplication:
                 return number1 * number2
             default:
                 fatalError("The operation passed in does not match any of the cases")

@@ -32,7 +32,8 @@ class ViewController: UIViewController {
         calculator.setNumber(displayValue) // burada displayValue yi parametre olarak gönderince zaten kendisi çağrıldığı için getter bloğu çalıştı
         
         if let calcMethod = sender.currentTitle {
-            if let result = calculator.Calculate(symbol: calcMethod)  {
+            guard let operation = Operation(rawValue: calcMethod) else { fatalError("Operation is not valid") }
+            if let result = calculator.Calculate(symbol: operation)  {
                 displayValue = result // burada ise setter bloğu çalıştı ve display text değişti
             }
             
@@ -51,7 +52,7 @@ class ViewController: UIViewController {
                 displayLabel.text = numValue
                 isFinishedTypingNumber = false
             }else{
-                if numValue == "." {
+                if numValue == Operation.dot.rawValue {
                     
                     let isInt = floor(displayValue ) == displayValue
                     if !isInt { // number is not int , so we can return in here because . is used
